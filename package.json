@@ -48,19 +48,6 @@
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "src/**/*.js",
-      "!src/**/*.test.js"
-    ],
-    "coverageDirectory": "coverage",
-    "coverageReporters": [
-      "text",
-      "lcov",
-      "html"
-    ]
-  },
   "electron": {
     "main": "electron/main.js"
   }

@@ -63,11 +63,11 @@
 - [ ] 1.0 Project Setup and Infrastructure
   - [x] 1.1 Initialize Node.js project with package.json and install dependencies (Express, fs-extra, js-yaml, ajv for JSON schema validation, Electron for desktop app)
   - [x] 1.2 Set up project directory structure (src/, public/, config/, schemas/, tests/, electron/, scripts/)
-  - [ ] 1.3 Create basic Express server with middleware setup (CORS, JSON parsing, static file serving)
-  - [ ] 1.4 Configure Jest testing framework and create test scripts in package.json
-  - [ ] 1.5 Create default configuration file with Windows-compatible file paths
-  - [ ] 1.6 Set up development environment with nodemon for auto-restart
-  - [ ] 1.7 Configure Electron for desktop application with main process and preload scripts
+  - [x] 1.3 Create basic Express server with middleware setup (CORS, JSON parsing, static file serving)
+  - [x] 1.4 Configure Jest testing framework and create test scripts in package.json
+  - [x] 1.5 Create default configuration file with Windows-compatible file paths
+  - [x] 1.6 Set up development environment with nodemon for auto-restart
+  - [x] 1.7 Configure Electron for desktop application with main process and preload scripts
 
 - [ ] 2.0 Manifest File System and Schema Implementation
   - [ ] 2.1 Write tests for JSON schema validation (test schema structure, required fields, data types)
