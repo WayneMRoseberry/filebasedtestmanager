@@ -1,0 +1,74 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "environment": "development"
+  },
+  "fileSystem": {
+    "rootDirectory": "./test-collateral",
+    "manifestFilePatterns": [
+      "*.manifest.json",
+      "*.manifest.yaml",
+      "*.manifest.yml"
+    ],
+    "supportedFileTypes": [
+      ".txt",
+      ".md",
+      ".json",
+      ".yaml",
+      ".yml"
+    ],
+    "watchForChanges": true,
+    "cacheTimeout": 300000
+  },
+  "electron": {
+    "window": {
+      "width": 1200,
+      "height": 800,
+      "minWidth": 800,
+      "minHeight": 600,
+      "showDevTools": false
+    },
+    "autoUpdater": {
+      "enabled": false,
+      "checkInterval": 3600000
+    }
+  },
+  "logging": {
+    "level": "info",
+    "file": {
+      "enabled": true,
+      "path": "./logs/app.log",
+      "maxSize": "10MB",
+      "maxFiles": 5
+    },
+    "console": {
+      "enabled": true,
+      "colorize": true
+    }
+  },
+  "api": {
+    "rateLimit": {
+      "enabled": true,
+      "windowMs": 900000,
+      "max": 100
+    },
+    "cors": {
+      "enabled": true,
+      "origin": "*",
+      "credentials": true
+    }
+  },
+  "paths": {
+    "windows": {
+      "userData": "%APPDATA%/file-based-test-manager",
+      "logs": "%APPDATA%/file-based-test-manager/logs",
+      "config": "%APPDATA%/file-based-test-manager/config"
+    },
+    "unix": {
+      "userData": "~/.file-based-test-manager",
+      "logs": "~/.file-based-test-manager/logs",
+      "config": "~/.file-based-test-manager/config"
+    }
+  }
+}
