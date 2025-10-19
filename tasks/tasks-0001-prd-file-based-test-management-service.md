@@ -61,8 +61,8 @@
 ## Tasks
 
 - [ ] 1.0 Project Setup and Infrastructure
-  - [ ] 1.1 Initialize Node.js project with package.json and install dependencies (Express, fs-extra, js-yaml, ajv for JSON schema validation, Electron for desktop app)
-  - [ ] 1.2 Set up project directory structure (src/, public/, config/, schemas/, tests/, electron/, scripts/)
+  - [x] 1.1 Initialize Node.js project with package.json and install dependencies (Express, fs-extra, js-yaml, ajv for JSON schema validation, Electron for desktop app)
+  - [x] 1.2 Set up project directory structure (src/, public/, config/, schemas/, tests/, electron/, scripts/)
   - [ ] 1.3 Create basic Express server with middleware setup (CORS, JSON parsing, static file serving)
   - [ ] 1.4 Configure Jest testing framework and create test scripts in package.json
   - [ ] 1.5 Create default configuration file with Windows-compatible file paths
