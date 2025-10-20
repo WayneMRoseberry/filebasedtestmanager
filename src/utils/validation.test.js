@@ -22,15 +22,45 @@ describe('JSON Schema Validation', () => {
     // TDD Green phase: Load schemas from files (implemented in task 2.2)
     const schemasDir = path.join(__dirname, '../../schemas');
 
-    projectSchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'project-schema.json'), 'utf8'));
-    testStrategySchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'test-strategy-schema.json'), 'utf8'));
-    testPlanSchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'test-plan-schema.json'), 'utf8'));
-    testCharterSchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'test-charter-schema.json'), 'utf8'));
-    testSessionSchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'test-session-schema.json'), 'utf8'));
-    testReportSchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'test-report-schema.json'), 'utf8'));
-    testSuiteSchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'test-suite-schema.json'), 'utf8'));
-    testCaseSchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'test-case-schema.json'), 'utf8'));
-    testStatusReportSchema = JSON.parse(fs.readFileSync(path.join(schemasDir, 'test-status-report-schema.json'), 'utf8'));
+    projectSchema = JSON.parse(
+      fs.readFileSync(path.join(schemasDir, 'project-schema.json'), 'utf8'),
+    );
+    testStrategySchema = JSON.parse(
+      fs.readFileSync(
+        path.join(schemasDir, 'test-strategy-schema.json'),
+        'utf8',
+      ),
+    );
+    testPlanSchema = JSON.parse(
+      fs.readFileSync(path.join(schemasDir, 'test-plan-schema.json'), 'utf8'),
+    );
+    testCharterSchema = JSON.parse(
+      fs.readFileSync(
+        path.join(schemasDir, 'test-charter-schema.json'),
+        'utf8',
+      ),
+    );
+    testSessionSchema = JSON.parse(
+      fs.readFileSync(
+        path.join(schemasDir, 'test-session-schema.json'),
+        'utf8',
+      ),
+    );
+    testReportSchema = JSON.parse(
+      fs.readFileSync(path.join(schemasDir, 'test-report-schema.json'), 'utf8'),
+    );
+    testSuiteSchema = JSON.parse(
+      fs.readFileSync(path.join(schemasDir, 'test-suite-schema.json'), 'utf8'),
+    );
+    testCaseSchema = JSON.parse(
+      fs.readFileSync(path.join(schemasDir, 'test-case-schema.json'), 'utf8'),
+    );
+    testStatusReportSchema = JSON.parse(
+      fs.readFileSync(
+        path.join(schemasDir, 'test-status-report-schema.json'),
+        'utf8',
+      ),
+    );
   });
 
   describe('Project Schema', () => {
@@ -40,12 +70,12 @@ describe('JSON Schema Validation', () => {
         name: 'Test Project Alpha',
         startDate: '2025-01-01',
         areaHierarchy: {
-          'Authentication': {
-            'Login': ['Username validation', 'Password validation'],
-            'Logout': ['Session cleanup'],
+          Authentication: {
+            Login: ['Username validation', 'Password validation'],
+            Logout: ['Session cleanup'],
           },
-          'Dashboard': {
-            'Overview': ['Data display', 'Charts'],
+          Dashboard: {
+            Overview: ['Data display', 'Charts'],
           },
         },
         description: 'A comprehensive test project',
@@ -75,7 +105,7 @@ describe('JSON Schema Validation', () => {
       expect(validate.errors).toContainEqual(
         expect.objectContaining({
           keyword: 'required',
-          message: expect.stringContaining('required property \'name\''),
+          message: expect.stringContaining("required property 'name'"),
         }),
       );
     });
@@ -129,7 +159,11 @@ describe('JSON Schema Validation', () => {
         projectId: 'proj-001',
         name: 'Comprehensive Testing Strategy',
         description: 'End-to-end testing approach',
-        objectives: ['Functional testing', 'Performance testing', 'Security testing'],
+        objectives: [
+          'Functional testing',
+          'Performance testing',
+          'Security testing',
+        ],
         scope: 'Full application',
         approach: 'Risk-based testing',
         deliverables: ['Test plans', 'Test cases', 'Test reports'],
@@ -155,7 +189,7 @@ describe('JSON Schema Validation', () => {
       expect(validate.errors).toContainEqual(
         expect.objectContaining({
           keyword: 'required',
-          message: expect.stringContaining('required property \'projectId\''),
+          message: expect.stringContaining("required property 'projectId'"),
         }),
       );
     });
@@ -198,7 +232,9 @@ describe('JSON Schema Validation', () => {
         expect.objectContaining({
           instancePath: '/testLevel',
           keyword: 'enum',
-          message: expect.stringContaining('must be equal to one of the allowed values'),
+          message: expect.stringContaining(
+            'must be equal to one of the allowed values',
+          ),
         }),
       );
     });
@@ -238,7 +274,7 @@ describe('JSON Schema Validation', () => {
       expect(validate.errors).toContainEqual(
         expect.objectContaining({
           keyword: 'required',
-          message: expect.stringContaining('required property \'mission\''),
+          message: expect.stringContaining("required property 'mission'"),
         }),
       );
     });
@@ -328,12 +364,19 @@ describe('JSON Schema Validation', () => {
             type: 'bug',
             severity: 'high',
             description: 'Login fails with special characters',
-            steps: ['Enter username with @ symbol', 'Enter password', 'Click login'],
+            steps: [
+              'Enter username with @ symbol',
+              'Enter password',
+              'Click login',
+            ],
             expectedResult: 'Login should succeed',
             actualResult: 'Login fails with error message',
           },
         ],
-        recommendations: ['Fix special character handling', 'Add input validation'],
+        recommendations: [
+          'Fix special character handling',
+          'Add input validation',
+        ],
         attachments: ['screenshot1.png', 'logfile.txt'],
         createdBy: 'John Doe',
         createdAt: '2025-01-15T17:30:00Z',
@@ -360,7 +403,7 @@ describe('JSON Schema Validation', () => {
       expect(validate.errors).toContainEqual(
         expect.objectContaining({
           keyword: 'required',
-          message: expect.stringContaining('required property \'title\''),
+          message: expect.stringContaining("required property 'title'"),
         }),
       );
     });
@@ -387,7 +430,9 @@ describe('JSON Schema Validation', () => {
         expect.objectContaining({
           instancePath: '/findings/0/severity',
           keyword: 'enum',
-          message: expect.stringContaining('must be equal to one of the allowed values'),
+          message: expect.stringContaining(
+            'must be equal to one of the allowed values',
+          ),
         }),
       );
     });
@@ -445,10 +490,26 @@ describe('JSON Schema Validation', () => {
         name: 'Valid Login Test',
         description: 'Test login with valid credentials',
         steps: [
-          { step: 1, action: 'Navigate to login page', expected: 'Login page loads' },
-          { step: 2, action: 'Enter valid username', expected: 'Username field populated' },
-          { step: 3, action: 'Enter valid password', expected: 'Password field populated' },
-          { step: 4, action: 'Click login button', expected: 'User logged in successfully' },
+          {
+            step: 1,
+            action: 'Navigate to login page',
+            expected: 'Login page loads',
+          },
+          {
+            step: 2,
+            action: 'Enter valid username',
+            expected: 'Username field populated',
+          },
+          {
+            step: 3,
+            action: 'Enter valid password',
+            expected: 'Password field populated',
+          },
+          {
+            step: 4,
+            action: 'Click login button',
+            expected: 'User logged in successfully',
+          },
         ],
         priority: 'high',
         category: 'functional',
@@ -477,7 +538,9 @@ describe('JSON Schema Validation', () => {
         expect.objectContaining({
           instancePath: '/priority',
           keyword: 'enum',
-          message: expect.stringContaining('must be equal to one of the allowed values'),
+          message: expect.stringContaining(
+            'must be equal to one of the allowed values',
+          ),
         }),
       );
     });

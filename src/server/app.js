@@ -11,10 +11,12 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 
 // CORS middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? false : true,
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: process.env.NODE_ENV === 'production' ? false : true,
+    credentials: true,
+  }),
+);
 
 // Logging middleware
 app.use(morgan('combined'));
@@ -52,7 +54,10 @@ app.use((err, req, res, _next) => {
   console.error('Error:', err);
   res.status(500).json({
     error: 'Internal Server Error',
-    message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong',
+    message:
+      process.env.NODE_ENV === 'development'
+        ? err.message
+        : 'Something went wrong',
   });
 });
 
@@ -68,7 +73,9 @@ app.use((req, res) => {
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
-    console.log(`📁 Serving static files from: ${path.join(__dirname, '../public')}`);
+    console.log(
+      `📁 Serving static files from: ${path.join(__dirname, '../public')}`,
+    );
     console.log(`🌐 Health check: http://localhost:${PORT}/health`);
     console.log(`🔗 API endpoint: http://localhost:${PORT}/api`);
   });
