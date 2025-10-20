@@ -44,16 +44,22 @@
 ### ✅ Completed Files (Task 2.5)
 - `src/services/ManifestService.test.js` - Comprehensive tests for ManifestService class covering file reading, parsing, validation, writing, discovery, error handling, and configuration options
 
+### ✅ Completed Files (Task 2.6)
+- `src/services/ManifestService.js` - Complete ManifestService class implementation with JSON/YAML parsing, schema validation, file discovery, error handling, and configuration support
+
+### ✅ Completed Files (Task 2.7)
+- `src/utils/fileHelpers.test.js` - Comprehensive tests for manifest utility functions covering file operations, content parsing/formatting, validation, discovery, backup/restore, and data manipulation
+
+### ✅ Completed Files (Task 2.8)
+- `src/utils/fileHelpers.js` - Complete utility functions implementation with file operations, content parsing/formatting, validation, discovery, backup/restore, and data manipulation
+
 ### 📋 Pending Files (Future Tasks)
 - `src/server/routes/api.js` - API route handlers for all endpoints
 - `src/server/routes/api.test.js` - Unit tests for API routes
-- `src/services/ManifestService.js` - Manifest file parsing and management
 - `src/services/FileSystemService.js` - File system operations and discovery
 - `src/services/FileSystemService.test.js` - Unit tests for FileSystemService
 - `src/utils/validation.js` - Schema validation utilities
 - `src/utils/validation.test.js` - Unit tests for validation utilities
-- `src/utils/fileHelpers.js` - File system helper functions
-- `src/utils/fileHelpers.test.js` - Unit tests for file helpers
 - `public/index.html` - Main web UI HTML page
 - `public/css/styles.css` - CSS styles for the web interface
 - `public/js/app.js` - Frontend JavaScript application
@@ -98,9 +104,9 @@
   - [x] 2.3 Write tests for all data models (Project, TestStrategy, TestPlan, TestCharter, TestSession, TestReport)
   - [x] 2.4 Create data models for all manifest entities with validation
   - [x] 2.5 Write tests for ManifestService class (parsing, validation, error handling)
-  - [ ] 2.6 Implement ManifestService class for parsing JSON/YAML manifest files
-  - [ ] 2.7 Write tests for utility functions (reading, writing, validating manifest files)
-  - [ ] 2.8 Create utility functions for reading, writing, and validating manifest files
+  - [x] 2.6 Implement ManifestService class for parsing JSON/YAML manifest files
+  - [x] 2.7 Write tests for utility functions (reading, writing, validating manifest files)
+  - [x] 2.8 Create utility functions for reading, writing, and validating manifest files
   - [ ] 2.9 Write tests for error handling scenarios (malformed files, invalid schemas)
   - [ ] 2.10 Implement error handling for malformed or invalid manifest files
   - [ ] 2.11 Write tests for YAML format support
