@@ -13,7 +13,7 @@ app.use(helmet());
 // CORS middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' ? false : true,
-  credentials: true
+  credentials: true,
 }));
 
 // Logging middleware
@@ -28,39 +28,39 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Basic health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+  res.json({
+    status: 'OK',
     timestamp: new Date().toISOString(),
-    service: 'File Based Test Management Service'
+    service: 'File Based Test Management Service',
   });
 });
 
 // API routes placeholder
 app.get('/api', (req, res) => {
-  res.json({ 
+  res.json({
     message: 'File Based Test Management Service API',
     version: '1.0.0',
     endpoints: {
       projects: '/api/projects',
-      health: '/health'
-    }
+      health: '/health',
+    },
   });
 });
 
 // Error handling middleware
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
   console.error('Error:', err);
-  res.status(500).json({ 
+  res.status(500).json({
     error: 'Internal Server Error',
-    message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong'
+    message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong',
   });
 });
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ 
+  res.status(404).json({
     error: 'Not Found',
-    message: `Route ${req.method} ${req.path} not found`
+    message: `Route ${req.method} ${req.path} not found`,
   });
 });
 
