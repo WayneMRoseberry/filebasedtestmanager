@@ -3,8 +3,6 @@ name: Pull Request Tests
 on:
   pull_request:
     branches: [ main, master, develop ]
-  pull_request_target:
-    branches: [ main, master, develop ]
 
 jobs:
   test:
@@ -36,3 +34,4 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         lcov-file: ./coverage/lcov.info
         delete-old-comments: true
+      continue-on-error: true
