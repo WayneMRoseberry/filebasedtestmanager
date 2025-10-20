@@ -1,0 +1,100 @@
+{
+  "$id": "https://filebasedtestmanager.com/schemas/test-charter-schema.json",
+  "title": "Test Charter Schema",
+  "description": "Schema for defining test charters within test plans",
+  "type": "object",
+  "required": ["id", "projectId", "name", "mission"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^charter-\\d+$",
+      "description": "Unique charter identifier"
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^proj-\\d+$",
+      "description": "Reference to the project"
+    },
+    "planId": {
+      "type": "string",
+      "pattern": "^plan-\\d+$",
+      "description": "Reference to the test plan"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Charter name"
+    },
+    "mission": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "Testing mission statement"
+    },
+    "scope": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Scope of testing for this charter"
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Expected deliverables"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Reference to related documents"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "Additional notes"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "default": "medium",
+      "description": "Charter priority"
+    },
+    "estimatedEffort": {
+      "type": "string",
+      "pattern": "^\\d+\\s*(hours?|days?|weeks?)$",
+      "description": "Estimated effort for this charter"
+    },
+    "assignedTo": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Person assigned to this charter"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "ready", "in-progress", "completed", "blocked"],
+      "default": "draft",
+      "description": "Charter status"
+    },
+    "createdBy": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Creator of the charter"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    }
+  },
+  "additionalProperties": false
+}
