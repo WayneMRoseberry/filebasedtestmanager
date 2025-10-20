@@ -59,7 +59,15 @@
         "type": "string",
         "minLength": 1
       },
-      "description": "Identified risks"
+      "description": "Identified risks for the testing effort"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Dependencies for the testing effort"
     },
     "assumptions": {
       "type": "array",
@@ -97,6 +105,16 @@
       "type": "string",
       "format": "date-time",
       "description": "Last update timestamp"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+      "description": "Version of the test strategy (semver)"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Additional metadata for the test strategy"
     }
   },
   "additionalProperties": false

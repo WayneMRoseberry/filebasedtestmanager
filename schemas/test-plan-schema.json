@@ -84,6 +84,35 @@
       "maxLength": 500,
       "description": "Test environment requirements"
     },
+    "environment": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Testing environment"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Planned start date for the test plan"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Planned end date for the test plan"
+    },
+    "effortEstimation": {
+      "type": "object",
+      "properties": {
+        "hours": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "days": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "description": "Estimated effort for the test plan"
+    },
     "testData": {
       "type": "string",
       "maxLength": 500,
@@ -109,6 +138,16 @@
       "type": "string",
       "format": "date-time",
       "description": "Last update timestamp"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+      "description": "Version of the test plan (semver)"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Additional metadata for the test plan"
     }
   },
   "additionalProperties": false
