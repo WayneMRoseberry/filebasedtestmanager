@@ -11,10 +11,12 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 
 // CORS middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? false : true,
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: process.env.NODE_ENV === 'production' ? false : true,
+    credentials: true,
+  }),
+);
 
 // Logging middleware
 app.use(morgan('combined'));
@@ -28,39 +30,42 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Basic health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+  res.json({
+    status: 'OK',
     timestamp: new Date().toISOString(),
-    service: 'File Based Test Management Service'
+    service: 'File Based Test Management Service',
   });
 });
 
 // API routes placeholder
 app.get('/api', (req, res) => {
-  res.json({ 
+  res.json({
     message: 'File Based Test Management Service API',
     version: '1.0.0',
     endpoints: {
       projects: '/api/projects',
-      health: '/health'
-    }
+      health: '/health',
+    },
   });
 });
 
 // Error handling middleware
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
   console.error('Error:', err);
-  res.status(500).json({ 
+  res.status(500).json({
     error: 'Internal Server Error',
-    message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong'
+    message:
+      process.env.NODE_ENV === 'development'
+        ? err.message
+        : 'Something went wrong',
   });
 });
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ 
+  res.status(404).json({
     error: 'Not Found',
-    message: `Route ${req.method} ${req.path} not found`
+    message: `Route ${req.method} ${req.path} not found`,
   });
 });
 
@@ -68,7 +73,9 @@ app.use((req, res) => {
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
-    console.log(`📁 Serving static files from: ${path.join(__dirname, '../public')}`);
+    console.log(
+      `📁 Serving static files from: ${path.join(__dirname, '../public')}`,
+    );
     console.log(`🌐 Health check: http://localhost:${PORT}/health`);
     console.log(`🔗 API endpoint: http://localhost:${PORT}/api`);
   });

@@ -15,6 +15,20 @@
 - `electron/package.json` - Electron-specific package configuration and build settings
 - `.gitignore` - Comprehensive gitignore for Node.js/Electron project
 
+### ✅ Completed Files (Task 2.1)
+- `src/utils/validation.test.js` - Comprehensive tests for JSON schema validation (9 schema types, 25+ test cases)
+
+### ✅ Completed Files (Task 2.2)
+- `schemas/project-schema.json` - JSON schema for project manifest files
+- `schemas/test-strategy-schema.json` - JSON schema for test strategy manifest files
+- `schemas/test-plan-schema.json` - JSON schema for test plan manifest files
+- `schemas/test-charter-schema.json` - JSON schema for test charter manifest files
+- `schemas/test-session-schema.json` - JSON schema for test session manifest files
+- `schemas/test-report-schema.json` - JSON schema for test report manifest files
+- `schemas/test-suite-schema.json` - JSON schema for test suite manifest files
+- `schemas/test-case-schema.json` - JSON schema for test case manifest files
+- `schemas/test-status-report-schema.json` - JSON schema for test status report manifest files
+
 ### 📋 Pending Files (Future Tasks)
 - `src/server/routes/api.js` - API route handlers for all endpoints
 - `src/server/routes/api.test.js` - Unit tests for API routes
@@ -77,8 +91,8 @@
   - [x] 1.7 Configure Electron for desktop application with main process and preload scripts
 
 - [ ] 2.0 Manifest File System and Schema Implementation
-  - [ ] 2.1 Write tests for JSON schema validation (test schema structure, required fields, data types)
-  - [ ] 2.2 Define JSON schema for manifest files (projects, strategies, plans, charters, sessions, reports)
+  - [x] 2.1 Write tests for JSON schema validation (test schema structure, required fields, data types)
+  - [x] 2.2 Define JSON schema for manifest files (projects, strategies, plans, charters, sessions, reports)
   - [ ] 2.3 Write tests for all data models (Project, TestStrategy, TestPlan, TestCharter, TestSession, TestReport)
   - [ ] 2.4 Create data models for all manifest entities with validation
   - [ ] 2.5 Write tests for ManifestService class (parsing, validation, error handling)

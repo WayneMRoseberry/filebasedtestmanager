@@ -1,0 +1,156 @@
+{
+  "$id": "https://filebasedtestmanager.com/schemas/test-status-report-schema.json",
+  "title": "Test Status Report Schema",
+  "description": "Schema for defining test status reports",
+  "type": "object",
+  "required": ["id", "projectId", "title", "period", "summary"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^status-report-\\d+$",
+      "description": "Unique status report identifier"
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^proj-\\d+$",
+      "description": "Reference to the project"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Status report title"
+    },
+    "period": {
+      "type": "object",
+      "required": ["startDate", "endDate"],
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Report period start date"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Report period end date"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Reporting period"
+    },
+    "summary": {
+      "type": "object",
+      "required": ["totalTestCases", "executed", "passed", "failed"],
+      "properties": {
+        "totalTestCases": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of test cases"
+        },
+        "executed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of executed test cases"
+        },
+        "passed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of passed test cases"
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of failed test cases"
+        },
+        "blocked": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of blocked test cases"
+        },
+        "notExecuted": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of not executed test cases"
+        },
+        "skipped": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of skipped test cases"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Test execution summary"
+    },
+    "keyFindings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Key findings from the period"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Identified risks"
+    },
+    "nextSteps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Next steps and actions"
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "testCoverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Test coverage percentage"
+        },
+        "defectDensity": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Defects per test case"
+        },
+        "executionRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Test execution rate percentage"
+        },
+        "passRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Test pass rate percentage"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Calculated metrics"
+    },
+    "createdBy": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Creator of the status report"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    }
+  },
+  "additionalProperties": false
+}
