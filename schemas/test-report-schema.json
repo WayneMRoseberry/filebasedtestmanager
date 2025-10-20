@@ -41,51 +41,31 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["type", "severity", "description"],
+        "required": ["title", "severity", "status"],
         "properties": {
-          "type": {
+          "title": {
             "type": "string",
-            "enum": ["bug", "issue", "observation", "suggestion"],
-            "description": "Type of finding"
+            "minLength": 1
+          },
+          "description": {
+            "type": "string"
           },
           "severity": {
             "type": "string",
-            "enum": ["low", "medium", "high", "critical"],
-            "description": "Severity level"
+            "enum": ["low", "medium", "high", "critical"]
           },
-          "description": {
+          "status": {
             "type": "string",
-            "minLength": 1,
-            "maxLength": 1000,
-            "description": "Finding description"
+            "enum": ["open", "closed", "reopened", "deferred", "investigating"]
           },
-          "steps": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "minLength": 1
-            },
-            "description": "Steps to reproduce"
-          },
-          "expectedResult": {
+          "bugId": {
             "type": "string",
-            "maxLength": 500,
-            "description": "Expected result"
-          },
-          "actualResult": {
-            "type": "string",
-            "maxLength": 500,
-            "description": "Actual result"
-          },
-          "impact": {
-            "type": "string",
-            "maxLength": 500,
-            "description": "Impact assessment"
+            "description": "Reference to an external bug tracking system ID"
           }
         },
         "additionalProperties": false
       },
-      "description": "Findings from the test session"
+      "description": "List of findings or defects identified"
     },
     "recommendations": {
       "type": "array",
@@ -110,31 +90,36 @@
           "type": "integer",
           "minimum": 0
         },
-        "testCasesPassed": {
+        "defectsFound": {
           "type": "integer",
           "minimum": 0
         },
-        "testCasesFailed": {
-          "type": "integer",
+        "timeSpentHours": {
+          "type": "number",
           "minimum": 0
-        },
-        "bugsFound": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "sessionDuration": {
-          "type": "integer",
-          "minimum": 0,
-          "description": "Duration in minutes"
         }
       },
-      "additionalProperties": false,
-      "description": "Session metrics"
+      "additionalProperties": true,
+      "description": "Key metrics from the testing effort"
     },
     "createdBy": {
       "type": "string",
       "minLength": 1,
       "description": "Creator of the report"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the report was generated"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author of the test report"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "final", "archived"],
+      "description": "Status of the report"
     },
     "createdAt": {
       "type": "string",
@@ -145,6 +130,11 @@
       "type": "string",
       "format": "date-time",
       "description": "Last update timestamp"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Additional metadata for the test report"
     }
   },
   "additionalProperties": false

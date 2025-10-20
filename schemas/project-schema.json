@@ -41,18 +41,30 @@
       "additionalProperties": false
     },
     "description": {
-      "type": "string",
+      "type": ["string", "null"],
       "maxLength": 1000,
       "description": "Project description"
     },
     "status": {
+      "type": ["string", "null"],
+      "anyOf": [
+        { "enum": ["active", "archived", "on-hold"] },
+        { "type": "null" }
+      ],
+      "description": "Current status of the project"
+    },
+    "version": {
       "type": "string",
-      "enum": ["active", "inactive", "completed", "cancelled"],
-      "default": "active",
-      "description": "Project status"
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+      "description": "Version of the project (semver)"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Additional metadata for the project"
     },
     "endDate": {
-      "type": "string",
+      "type": ["string", "null"],
       "format": "date",
       "description": "Project end date in YYYY-MM-DD format"
     },

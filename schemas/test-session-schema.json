@@ -88,6 +88,10 @@
       },
       "description": "Issues raised during the session"
     },
+    "build": {
+      "type": "string",
+      "description": "Build or version of the software tested"
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time",
@@ -97,6 +101,11 @@
       "type": "string",
       "format": "date-time",
       "description": "Last update timestamp"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Additional metadata for the test session"
     }
   },
   "additionalProperties": false

@@ -32,6 +32,25 @@
       "maxLength": 1000,
       "description": "Testing mission statement"
     },
+    "testPlanId": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "description": "ID of the associated test plan"
+    },
+    "tester": {
+      "type": "string",
+      "description": "Name of the tester executing the charter"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the charter was executed"
+    },
+    "timebox": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Time allocated for the session in minutes"
+    },
     "scope": {
       "type": "string",
       "maxLength": 1000,
@@ -76,9 +95,17 @@
     },
     "status": {
       "type": "string",
-      "enum": ["draft", "ready", "in-progress", "completed", "blocked"],
+      "enum": ["draft", "ready", "in-progress", "completed", "blocked", "active"],
       "default": "draft",
       "description": "Charter status"
+    },
+    "documentReferences": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "URLs to related documents (e.g., requirements, design docs)"
     },
     "createdBy": {
       "type": "string",
@@ -94,6 +121,11 @@
       "type": "string",
       "format": "date-time",
       "description": "Last update timestamp"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Additional metadata for the test charter"
     }
   },
   "additionalProperties": false

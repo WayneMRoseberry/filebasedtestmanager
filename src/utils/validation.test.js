@@ -355,31 +355,25 @@ describe('JSON Schema Validation', () => {
       const validReport = {
         id: 'report-001',
         projectId: 'proj-001',
-        sessionId: 'session-001',
-        charterId: 'charter-001',
         title: 'Login Testing Report',
         summary: 'Comprehensive testing of login functionality',
         findings: [
           {
-            type: 'bug',
-            severity: 'high',
+            title: 'Login Bug',
             description: 'Login fails with special characters',
-            steps: [
-              'Enter username with @ symbol',
-              'Enter password',
-              'Click login',
-            ],
-            expectedResult: 'Login should succeed',
-            actualResult: 'Login fails with error message',
+            severity: 'high',
+            status: 'open',
+            bugId: 'BUG-123',
           },
         ],
-        recommendations: [
-          'Fix special character handling',
-          'Add input validation',
-        ],
-        attachments: ['screenshot1.png', 'logfile.txt'],
-        createdBy: 'John Doe',
-        createdAt: '2025-01-15T17:30:00Z',
+        metrics: {
+          testCasesExecuted: 10,
+          defectsFound: 1,
+          timeSpentHours: 2.5,
+        },
+        date: '2025-01-15',
+        author: 'John Doe',
+        status: 'final',
       };
 
       const validate = ajv.compile(testReportSchema);
