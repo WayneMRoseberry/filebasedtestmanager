@@ -65,11 +65,15 @@
 ### ✅ Completed Files (Task 2.12)
 - `src/utils/yamlSupport.js` - Complete YAML format support implementation with parsing, formatting, validation, conversion, security, advanced features, and performance optimization
 
+### ✅ Completed Files (Task 3.1)
+- `src/services/FileSystemService.test.js` - Comprehensive tests for FileSystemService covering directory scanning, manifest discovery, file watching, directory operations, search/filtering, error handling, performance optimization, and system information
+
+### ✅ Completed Files (Task 3.2)
+- `src/services/FileSystemService.js` - Complete FileSystemService implementation with directory scanning, manifest discovery, file watching, directory operations, search/filtering, error handling, performance optimization, and system information
+
 ### 📋 Pending Files (Future Tasks)
 - `src/server/routes/api.js` - API route handlers for all endpoints
 - `src/server/routes/api.test.js` - Unit tests for API routes
-- `src/services/FileSystemService.js` - File system operations and discovery
-- `src/services/FileSystemService.test.js` - Unit tests for FileSystemService
 - `src/utils/validation.js` - Schema validation utilities
 - `src/utils/validation.test.js` - Unit tests for validation utilities
 - `public/index.html` - Main web UI HTML page
@@ -125,8 +129,8 @@
   - [x] 2.12 Add support for both JSON and YAML manifest file formats
 
 - [ ] 3.0 File System Discovery and Management
-  - [ ] 3.1 Write tests for FileSystemService (directory scanning, manifest discovery, error cases)
-  - [ ] 3.2 Implement FileSystemService for scanning directories and discovering manifest files
+  - [x] 3.1 Write tests for FileSystemService (directory scanning, manifest discovery, error cases)
+  - [x] 3.2 Implement FileSystemService for scanning directories and discovering manifest files
   - [ ] 3.3 Write tests for file watching functionality (change detection, event handling)
   - [ ] 3.4 Create file watching functionality to detect changes in manifest files
   - [ ] 3.5 Write tests for hierarchical navigation (path resolution, directory structure)
