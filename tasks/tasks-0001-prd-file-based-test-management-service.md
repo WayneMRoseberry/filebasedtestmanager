@@ -59,6 +59,12 @@
 ### ✅ Completed Files (Task 2.10)
 - `src/utils/errorHandlers.js` - Complete error handling implementation with comprehensive error detection, recovery suggestions, retry mechanisms, data sanitization, and error reporting
 
+### ✅ Completed Files (Task 2.11)
+- `src/utils/yamlSupport.test.js` - Comprehensive tests for YAML format support covering parsing, formatting, validation, conversion, security, advanced features, and performance
+
+### ✅ Completed Files (Task 2.12)
+- `src/utils/yamlSupport.js` - Complete YAML format support implementation with parsing, formatting, validation, conversion, security, advanced features, and performance optimization
+
 ### 📋 Pending Files (Future Tasks)
 - `src/server/routes/api.js` - API route handlers for all endpoints
 - `src/server/routes/api.test.js` - Unit tests for API routes
@@ -104,7 +110,7 @@
   - [x] 1.6 Set up development environment with nodemon for auto-restart
   - [x] 1.7 Configure Electron for desktop application with main process and preload scripts
 
-- [ ] 2.0 Manifest File System and Schema Implementation
+- [x] 2.0 Manifest File System and Schema Implementation
   - [x] 2.1 Write tests for JSON schema validation (test schema structure, required fields, data types)
   - [x] 2.2 Define JSON schema for manifest files (projects, strategies, plans, charters, sessions, reports)
   - [x] 2.3 Write tests for all data models (Project, TestStrategy, TestPlan, TestCharter, TestSession, TestReport)
@@ -115,8 +121,8 @@
   - [x] 2.8 Create utility functions for reading, writing, and validating manifest files
   - [x] 2.9 Write tests for error handling scenarios (malformed files, invalid schemas)
   - [x] 2.10 Implement error handling for malformed or invalid manifest files
-  - [ ] 2.11 Write tests for YAML format support
-  - [ ] 2.12 Add support for both JSON and YAML manifest file formats
+  - [x] 2.11 Write tests for YAML format support
+  - [x] 2.12 Add support for both JSON and YAML manifest file formats
 
 - [ ] 3.0 File System Discovery and Management
   - [ ] 3.1 Write tests for FileSystemService (directory scanning, manifest discovery, error cases)
