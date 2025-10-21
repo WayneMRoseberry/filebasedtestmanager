@@ -53,6 +53,12 @@
 ### ✅ Completed Files (Task 2.8)
 - `src/utils/fileHelpers.js` - Complete utility functions implementation with file operations, content parsing/formatting, validation, discovery, backup/restore, and data manipulation
 
+### ✅ Completed Files (Task 2.9)
+- `src/utils/errorHandlers.test.js` - Comprehensive tests for error handling scenarios covering malformed files, invalid schemas, file system errors, validation errors, recovery mechanisms, and system resource errors
+
+### ✅ Completed Files (Task 2.10)
+- `src/utils/errorHandlers.js` - Complete error handling implementation with comprehensive error detection, recovery suggestions, retry mechanisms, data sanitization, and error reporting
+
 ### 📋 Pending Files (Future Tasks)
 - `src/server/routes/api.js` - API route handlers for all endpoints
 - `src/server/routes/api.test.js` - Unit tests for API routes
@@ -107,8 +113,8 @@
   - [x] 2.6 Implement ManifestService class for parsing JSON/YAML manifest files
   - [x] 2.7 Write tests for utility functions (reading, writing, validating manifest files)
   - [x] 2.8 Create utility functions for reading, writing, and validating manifest files
-  - [ ] 2.9 Write tests for error handling scenarios (malformed files, invalid schemas)
-  - [ ] 2.10 Implement error handling for malformed or invalid manifest files
+  - [x] 2.9 Write tests for error handling scenarios (malformed files, invalid schemas)
+  - [x] 2.10 Implement error handling for malformed or invalid manifest files
   - [ ] 2.11 Write tests for YAML format support
   - [ ] 2.12 Add support for both JSON and YAML manifest file formats
 
