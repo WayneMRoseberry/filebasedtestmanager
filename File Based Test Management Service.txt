@@ -10,27 +10,35 @@ Requirements:
 4. Testing manifest files use a schema that supports the following constructs
 4.1. Projects: Describes a project that is to be tested. Projects include the following properties
 4.1.1. Name, start date
-4.1.2. Area hierarchy – a breakdown of the features within the project
-4.2. Test Strategy: Describes a set of testing plans for a given project
-4.3. Test Plan: Describes a set of test collateral which articulate the plan for testing some part of a project
-4.4. Test Charters: Describes a specific area of testing activity, the mission for that testing activity, and refers to the documents with more details on the charter.
-4.5. Test Session: Describes a time-bound event which executed on the charter, with references to any notes or reports produced during the session. Test sessions have as attributes the charter they cover, the date and time and length of the session, the person executing on the session, and revision number of the product under test if relevant.
-4.6. Test Session Report: Describes a document that contains a summary of activities and learnings in a testing session. Test session reports align their metadata with the test session they were created in.
-4.7. Test Suite: Describes a collection of test cases.
-4.8. Test Cases: A collection of specific testing ideas, frequently associated with a test character, that describe what to test.
-4.9. Test Status Report: A summary of testing for a given project which summarizes the key focus areas.
+4.1.2. Area hierarchy â€“ a breakdown of the features within the project
+4.2. Test documents - all test documents live in the file system as separte files from their schema objects in the manifests. All test document schemas have a property called filePath that indicates the location of the file in the directory. All test documents have an optional array of Test Support File objects called supportFiles.
+4.2.1 Test Strategy: Describes a set of testing plans for a given project
+4.2.2 Test Plan: Describes a set of test collateral which articulate the plan for testing some part of a project
+4.2.3 Test Charters: Describes a specific area of testing activity, the mission for that testing activity, and refers to the documents with more details on the charter.
+4.2.4 Test Session: Describes a time-bound event which executed on the charter, with references to any notes or reports produced during the session. Test sessions have as attributes the charter they cover, the date and time and length of the session, the person executing on the session, and revision number of the product under test if relevant.
+4.2.5 Test Session Report: Describes a document that contains a summary of activities and learnings in a testing session. Test session reports align their metadata with the test session they were created in.
+4.2.6. Test Cases: A collection of specific testing ideas, frequently associated with a test charter, that describe what to test.
+4.2.7. Test Status Report: A summary of testing for a given project which summarizes the key focus areas.
+4.2.8. Support File: Describes any other supporting documentation that may be referenced as part of testing.
+4.3. Test Suite: Describes a collection of test cases.
 5. There will be a main test manifest file which describes the project overall. Multiple projects may exist in the same directory. Other test manifest files may also exist within the file directory. Every new manifest is considered additive to the main test manifest file for the project. Each manifest file will indicate which project it is a part of.
 6. The service will provide an API for discovering and reporting on the collateral in the test management service.
-6.1. getProjects() – returns an array of all the projects in the system
-6.2. getProject() – returns a description of the project, which includes a tree of all of its features
-6.3. getTestStrategies() – given a project, returns a list of test strategies associated with the project
-6.4. getTestStrategy() – given a test strategy and a project, returns the test strategy object
-6.5. getTestPlans() – given a project, and optionally a test strategy, returns all test plans associated with that project or filtered to the strategy
-6.6. getTestCharters() – given a project, and optionally a test strategy or test plan, all the test charters associated with that project
-6.7. getTestSessions() – given a project, and optionally a test charter, returns all the test sessions associated with that project and filtered to that charter. Also allows filtering based on date and production revision.
-6.8. getTestReports() – given a project, and optionally a test session or test charter, returns all the test reports associated with that project and filtered to that session or charter. Also allows filtering based on date and production revision.
+6.1. getProjects() â€“ returns an array of all the projects in the system
+6.2. getProject() â€“ returns a description of the project, which includes a tree of all of its features
+6.3. getTestStrategies() â€“ given a project, returns a list of test strategies associated with the project
+6.4. getTestStrategy() â€“ given a test strategy and a project, returns the test strategy object
+6.5. getTestPlans() â€“ given a project, and optionally a test strategy, returns all test plans associated with that project or filtered to the strategy
+6.6. getTestCharters() â€“ given a project, and optionally a test strategy or test plan, all the test charters associated with that project
+6.7. getTestSessions() â€“ given a project, and optionally a test charter, returns all the test sessions associated with that project and filtered to that charter. Also allows filtering based on date and production revision.
+6.8. getTestReports() â€“ given a project, and optionally a test session or test charter, returns all the test reports associated with that project and filtered to that session or charter. Also allows filtering based on date and production revision.
 7. Web-based UI allows users to interact with the test management service
 7.1. Allow users to browse areas, strategies, plans, charters, sessions and reports for selected projects.
 7.2. Allow users to search for testing collateral based on keywords, tags, date, product version, and author. Allow filtering based on collateral type.
 7.3. Provide a settings page where the users can configure service behaviors
 7.3.1. Add directories where the user can browse to the root directory from which to discover manifest files.
+8. Engineering requirements
+8.1. Create a CI pipeline to run build and require passing unit tests as a pre-requisite to code merge.
+8.1.1. Unit tests should cover 90% of all new code changes
+8.1.2. Configure and design the unit tests to allow optimal use of memory, allowing execution of entire suite within available resources
+8.2. Use TDD, meaning all coding tasks must be preceded by unit tests that should fail on first run and pass when the coding task following them are finished
+8.3. Implement the service business logic in JavaScript
